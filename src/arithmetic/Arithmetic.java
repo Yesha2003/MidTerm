@@ -3,18 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package arithmetic;
-
-
-import java.util.Scanner;
-import static java.time.Clock.system;
-
-/** This class calls the method to perform 
- * arithmetic operations based on user input
- * execute the code check the output
- * @author sivagamasrinivasan
- * 
- */
 public class Arithmetic 
 {
 
@@ -23,13 +11,18 @@ public class Arithmetic
      */
     public static void main(String[] args) 
     {
-       
-        ArithmeticBase r= new ArithmeticBase();
         Scanner in= new Scanner(System.in);
+        System.out.println("Enter two Numbers: ");
         int n= in.nextInt();
         int m= in.nextInt();
-        double result = r.calculate(m,n);
-        System.out.println("result :" +result); 
+        
+        System.out.println("Enter Arethmetic Operation to perform: ");
+        String operation = in.next();
+        
+        Operation op = Operation.valueOf(operation.toUpperCase());
+        double result = op.apply(n, m);
+        
+        System.out.println("Result: " + result);
     
     }
 }
